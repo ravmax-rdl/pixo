@@ -6,12 +6,7 @@ export default function Index() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Hello</Text>
-      <TouchableOpacity onPress={() => alert('pressed')}>
-        <Text>Press me</Text>
-      </TouchableOpacity>
-      <Link href="/(tabs)/notifications" style={styles.page}>
-        Notifications
-      </Link>
+      <Link href="/notifications">Feed</Link>
     </View>
   );
 }
