@@ -64,6 +64,8 @@ export default function CreateScreen() {
       console.log('Error sharing post', error);
     } finally {
       setIsSharing(false);
+      setSelectedImage(null);
+      setCaption('');
     }
   };
 
