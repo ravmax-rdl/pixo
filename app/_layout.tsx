@@ -1,4 +1,4 @@
-import { Stack } from 'expo-router';
+import { SplashScreen, Stack } from 'expo-router';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import InitialLayout from '@/components/InitialLayout';
 import ClerkAndConvexProvider from '@/providers/ClerkAndConvexProvider';
@@ -12,4 +12,5 @@ export default function RootLayout() {
         </SafeAreaView>
       </SafeAreaProvider>
     </ClerkAndConvexProvider>
-  );}
+  );
+}

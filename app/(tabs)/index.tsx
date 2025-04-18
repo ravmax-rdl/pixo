@@ -1,6 +1,5 @@
-import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { styles } from '../../Styles/feed.styles';
-import { Link } from 'expo-router';
 import { useAuth } from '@clerk/clerk-expo';
 import { Ionicons } from '@expo/vector-icons';
 import { COLORS } from '@/constants/theme';
@@ -9,6 +8,7 @@ import Story from '@/components/Story';
 import { useQuery } from 'convex/react';
 import { api } from '@/convex/_generated/api';
 import { Loader } from '@/components/Loader';
+import Post from '@/components/Post';
 
 export default function Index() {
   const { signOut } = useAuth();
@@ -28,24 +28,27 @@ export default function Index() {
         </TouchableOpacity>
       </View>
 
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          style={styles.storiesContainer}
-        >
-          {STORIES.map((story) => (
-            <Story key={story.id} story={story} />
-          ))}
-        </ScrollView>
-
-        {posts.map((post) => (
-          <Post key={post._id} post={post} />
-        ))}
-      </ScrollView>
+      <FlatList
+        data={posts}
+        renderItem={({ item }) => <Post post={item} />}
+         
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: 60 }}
+        ListHeaderComponent={<StoriesSection />}
+      />
     </View>
   );
 }
+
+const StoriesSection = () => {
+  return (
+    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.storiesContainer}>
+      {STORIES.map((story) => (
+        <Story key={story.id} story={story} />
+      ))}
+    </ScrollView>
+  );
+};
 
 const NoPostsFound = () => {
   return (
