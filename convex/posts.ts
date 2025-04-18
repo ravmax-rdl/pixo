@@ -112,3 +112,74 @@ export const toggleLike = mutation({
     }
   },
 });
+
+export const deletePost = mutation({
+  args: { postId: v.id('posts') },
+  handler: async (ctx, args) => {
+    const currentUser = await getAuthenticatedUser(ctx);
+
+    const post = await ctx.db.get(args.postId);
+    if (!post) throw new Error('Post not found');
+
+    if (post.userId !== currentUser._id) throw new Error('Unauthorized');
+
+    const likes = await ctx.db
+      .query('likes')
+      .withIndex('by_post', (q) => q.eq('postId', args.postId))
+      .collect();
+
+    for (const like of likes) {
+      await ctx.db.delete(like._id);
+    }
+
+    const comments = await ctx.db
+      .query('comments')
+      .withIndex('by_post', (q) => q.eq('postId', args.postId))
+      .collect();
+
+    for (const comment of comments) {
+      await ctx.db.delete(comment._id);
+    }
+
+    const bookmarks = await ctx.db
+      .query('bookmarks')
+      .withIndex('by_post', (q) => q.eq('postId', args.postId))
+      .collect();
+
+    for (const bookmark of bookmarks) {
+      await ctx.db.delete(bookmark._id);
+    }
+
+    const notifications = await ctx.db
+      .query('notifications')
+      .withIndex('by_post', (q) => q.eq('postId', args.postId))
+      .collect();
+
+    for (const notification of notifications) {
+      await ctx.db.delete(notification._id);
+    }
+
+    await ctx.storage.delete(post.storageId);
+    await ctx.db.delete(args.postId);
+
+    await ctx.db.patch(currentUser._id, {
+      posts: Math.max(0, (currentUser.posts || 1) - 1),
+    });
+  },
+});
+
+export const getPostsByUser = query({
+  args: { userId: v.optional(v.id('users')) },
+  handler: async (ctx, args) => {
+    const user = args.userId ? await ctx.db.get(args.userId) : await getAuthenticatedUser(ctx);
+
+    if (!user) throw new Error('User not found');
+
+    const posts = await ctx.db
+      .query('posts')
+      .withIndex('by_user', (q) => q.eq('userId', args.userId || user._id))
+      .collect();
+
+    return posts;
+  },
+});

@@ -13,6 +13,7 @@ import {
   Platform,
   TouchableOpacity,
   FlatList,
+  TextInput,
 } from 'react-native';
 import { Loader } from './Loader';
 import Comment from './Comment';
@@ -29,7 +30,16 @@ export default function CommentsModal({ onClose, onCommentAdded, postId, visible
   const comments = useQuery(api.comments.getComments, { postId });
   const addComment = useMutation(api.comments.addComment);
 
-  const handleAddComment = async () => {};
+  const handleAddComment = async () => {
+    if (!newComment.trim()) return;
+    try {
+      await addComment({ postId, content: newComment });
+      setNewComment('');
+      onCommentAdded();
+    } catch (error) {
+      console.error('Error adding comment:', error);
+    }
+  };
 
   return (
     <Modal visible={visible} animationType="slide" transparent={true} onRequestClose={onClose}>
@@ -55,6 +65,22 @@ export default function CommentsModal({ onClose, onCommentAdded, postId, visible
             contentContainerStyle={styles.commentsList}
           />
         )}
+
+        <View style={styles.commentInput}>
+          <TextInput
+            style={styles.input}
+            placeholder="Add a comment..."
+            placeholderTextColor={COLORS.grey}
+            value={newComment}
+            onChangeText={setNewComment}
+            multiline
+          />
+          <TouchableOpacity onPress={handleAddComment} disabled={!newComment.trim()}>
+            <Text style={[styles.postButton, !newComment.trim() && styles.postButtonDisabled]}>
+              Post
+            </Text>
+          </TouchableOpacity>
+        </View>
       </KeyboardAvoidingView>
     </Modal>
   );
