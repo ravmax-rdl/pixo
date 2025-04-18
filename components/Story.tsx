@@ -1,5 +1,5 @@
-import { styles } from '@/Styles/feed.styles';
-import { TouchableOpacity, View, Image, Text } from 'react-native';
+import { styles } from "@/Styles/feed.styles";
+import { TouchableOpacity, View, Image, Text } from "react-native";
 
 type Story = {
   id: string;

@@ -1,26 +1,26 @@
-import { v } from 'convex/values';
-import { mutation, query } from './_generated/server';
-import { getAuthenticatedUser } from './users';
+import { v } from "convex/values";
+import { mutation, query } from "./_generated/server";
+import { getAuthenticatedUser } from "./users";
 
 export const generateUploadUrl = mutation(async (ctx) => {
   const identity = await ctx.auth.getUserIdentity();
-  if (!identity) throw new Error('Unauthorized');
+  if (!identity) throw new Error("Unauthorized");
   return await ctx.storage.generateUploadUrl();
 });
 
 export const createPost = mutation({
   args: {
     caption: v.optional(v.string()),
-    storageId: v.id('_storage'),
+    storageId: v.id("_storage"),
   },
 
   handler: async (ctx, args) => {
     const currentUser = await getAuthenticatedUser(ctx);
 
     const imageUrl = await ctx.storage.getUrl(args.storageId);
-    if (!imageUrl) throw new Error('Image not found');
+    if (!imageUrl) throw new Error("Image not found");
 
-    await ctx.db.insert('posts', {
+    await ctx.db.insert("posts", {
       userId: currentUser._id,
       imageUrl,
       storageId: args.storageId,
@@ -39,7 +39,7 @@ export const getFeedPosts = query({
   handler: async (ctx) => {
     const currentUser = await getAuthenticatedUser(ctx);
 
-    const posts = await ctx.db.query('posts').order('desc').collect();
+    const posts = await ctx.db.query("posts").order("desc").collect();
 
     if (posts.length === 0) return [];
 
@@ -48,14 +48,14 @@ export const getFeedPosts = query({
         const postAuthor = (await ctx.db.get(post.userId))!;
 
         const like = await ctx.db
-          .query('likes')
-          .withIndex('by_both', (q) => q.eq('userId', currentUser._id).eq('postId', post._id))
+          .query("likes")
+          .withIndex("by_both", (q) => q.eq("userId", currentUser._id).eq("postId", post._id))
           .first();
 
         const bookmark = await ctx.db
-          .query('bookmarks')
-          .withIndex('by_user_and_post', (q) =>
-            q.eq('userId', currentUser._id).eq('postId', post._id)
+          .query("bookmarks")
+          .withIndex("by_user_and_post", (q) =>
+            q.eq("userId", currentUser._id).eq("postId", post._id)
           )
           .first();
 
@@ -77,38 +77,38 @@ export const getFeedPosts = query({
 });
 
 export const toggleLike = mutation({
-  args: { postId: v.id('posts') },
+  args: { postId: v.id("posts") },
   handler: async (ctx, args) => {
     const currentUser = await getAuthenticatedUser(ctx);
 
     const existing = await ctx.db
-      .query('likes')
-      .withIndex('by_both', (q) => q.eq('userId', currentUser._id).eq('postId', args.postId))
+      .query("likes")
+      .withIndex("by_both", (q) => q.eq("userId", currentUser._id).eq("postId", args.postId))
       .first();
 
     const post = await ctx.db.get(args.postId);
-    if (!post) throw new Error('Post not found');
+    if (!post) throw new Error("Post not found");
 
-    if (existing) { 
+    if (existing) {
       await ctx.db.delete(existing._id);
       await ctx.db.patch(args.postId, { likes: post.likes - 1 });
       return false;
     } else {
-      await ctx.db.insert('likes', {
+      await ctx.db.insert("likes", {
         userId: currentUser._id,
         postId: args.postId,
       });
       await ctx.db.patch(args.postId, { likes: post.likes + 1 });
 
       if (currentUser._id !== post.userId) {
-        await ctx.db.insert('notifications', {
+        await ctx.db.insert("notifications", {
           receiverId: post.userId,
           senderId: currentUser._id,
-          type: 'like',
+          type: "like",
           postId: args.postId,
         });
       }
-      return true; 
+      return true;
     }
   },
 });

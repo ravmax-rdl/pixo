@@ -1,19 +1,19 @@
-import { ConvexError, v } from 'convex/values';
-import { getAuthenticatedUser } from './users';
-import { mutation, query } from './_generated/server';
+import { ConvexError, v } from "convex/values";
+import { getAuthenticatedUser } from "./users";
+import { mutation, query } from "./_generated/server";
 
 export const addComment = mutation({
   args: {
     content: v.string(),
-    postId: v.id('posts'),
+    postId: v.id("posts"),
   },
 
   handler: async (ctx, args) => {
     const currentUser = await getAuthenticatedUser(ctx);
     const post = await ctx.db.get(args.postId);
-    if (!post) throw new ConvexError('Post not found');
+    if (!post) throw new ConvexError("Post not found");
 
-    const commentId = await ctx.db.insert('comments', {
+    const commentId = await ctx.db.insert("comments", {
       userId: currentUser._id,
       postId: args.postId,
       content: args.content,
@@ -22,10 +22,10 @@ export const addComment = mutation({
     await ctx.db.patch(args.postId, { comments: post.comments + 1 });
 
     if (post.userId !== currentUser._id) {
-      await ctx.db.insert('notifications', {
+      await ctx.db.insert("notifications", {
         receiverId: post.userId,
         senderId: currentUser._id,
-        type: 'comment',
+        type: "comment",
         postId: args.postId,
         commentId,
       });
@@ -35,11 +35,11 @@ export const addComment = mutation({
 });
 
 export const getComments = query({
-  args: { postId: v.id('posts') },
+  args: { postId: v.id("posts") },
   handler: async (ctx, args) => {
     const comments = await ctx.db
-      .query('comments')
-      .withIndex('by_post', (q) => q.eq('postId', args.postId))
+      .query("comments")
+      .withIndex("by_post", (q) => q.eq("postId", args.postId))
       .collect();
 
     const commentsWithInfo = await Promise.all(

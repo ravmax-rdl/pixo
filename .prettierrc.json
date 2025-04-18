@@ -4,10 +4,25 @@
     "jsxBracketSameLine": false,
     "jsxSingleQuote": false,
     "quoteProps": "as-needed",
-    "singleQuote": true,
-    "semi": true,
     "printWidth": 100,
     "useTabs": false,
     "tabWidth": 2,
-    "trailingComma": "es5"
+    "trailingComma": "es5",
+    "semi": true,
+    "importOrder": [
+        "^react",
+        "^\\w",
+        "/types/",
+        "/hooks/",
+        "/store/",
+        "/views/",
+        "/components/",
+        "/assets/",
+        "^./",
+        "css$"
+    ],
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true,
+    "singleQuote": false,
+    "endOfLine": "auto"
 }

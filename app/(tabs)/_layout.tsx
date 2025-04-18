@@ -1,6 +1,6 @@
-import { Tabs } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
-import { COLORS } from '@/constants/theme';
+import { Tabs } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
+import { COLORS } from "@/constants/theme";
 
 export default function TabLayout() {
   return (
@@ -11,9 +11,9 @@ export default function TabLayout() {
         tabBarActiveTintColor: COLORS.primary,
         tabBarInactiveTintColor: COLORS.grey,
         tabBarStyle: {
-          backgroundColor: 'black',
+          backgroundColor: "black",
           borderTopWidth: 0,
-          position: 'absolute',
+          position: "absolute",
           elevation: 0,
           height: 40,
           paddingBottom: 8,

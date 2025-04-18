@@ -1,18 +1,18 @@
-import { COLORS } from '@/constants/theme';
-import { api } from '@/convex/_generated/api';
-import { Id } from '@/convex/_generated/dataModel';
-import { styles } from '@/Styles/feed.styles';
-import { Ionicons } from '@expo/vector-icons';
-import { useMutation } from 'convex/react';
-import { Image } from 'expo-image';
-import { Link } from 'expo-router';
-import { useState } from 'react';
-import { View, Text, Touchable, TouchableOpacity } from 'react-native';
-import CommentsModal from './CommentsModal';
+import { COLORS } from "@/constants/theme";
+import { api } from "@/convex/_generated/api";
+import { Id } from "@/convex/_generated/dataModel";
+import { styles } from "@/Styles/feed.styles";
+import { Ionicons } from "@expo/vector-icons";
+import { useMutation } from "convex/react";
+import { Image } from "expo-image";
+import { Link } from "expo-router";
+import { useState } from "react";
+import { View, Text, Touchable, TouchableOpacity } from "react-native";
+import CommentsModal from "./CommentsModal";
 
 type PostProps = {
   post: {
-    _id: Id<'posts'>;
+    _id: Id<"posts">;
     imageUrl: string;
     caption?: string;
     likes: number;
@@ -42,14 +42,14 @@ export default function Posts({ post }: PostProps) {
       setIsLiked(newIsLiked);
       setLikesCount((prev) => (newIsLiked ? prev + 1 : prev - 1));
     } catch (error) {
-      console.error('Error toggling like:', error);
+      console.error("Error toggling like:", error);
     }
   };
 
   return (
     <View style={styles.post}>
       <View style={styles.postHeader}>
-        <Link href={'/(tabs)/notifications'}>
+        <Link href={"/(tabs)/notifications"}>
           <TouchableOpacity style={styles.postHeaderLeft}>
             <Image
               source={post.author.image}
@@ -83,7 +83,7 @@ export default function Posts({ post }: PostProps) {
         <View style={styles.postActionsLeft}>
           <TouchableOpacity onPress={handleLike}>
             <Ionicons
-              name={isLiked ? 'heart' : 'heart-outline'}
+              name={isLiked ? "heart" : "heart-outline"}
               size={24}
               color={isLiked ? COLORS.primary : COLORS.white}
             />
@@ -99,7 +99,7 @@ export default function Posts({ post }: PostProps) {
 
       <View style={styles.postInfo}>
         <Text style={styles.likesText}>
-          {likesCount > 0 ? `${likesCount.toLocaleString()} likes` : 'Be the first to like this'}
+          {likesCount > 0 ? `${likesCount.toLocaleString()} likes` : "Be the first to like this"}
         </Text>
         {post.caption && (
           <View style={styles.captionContainer}>
