@@ -13,12 +13,12 @@ export default function login() {
   const handleGoogleSignIn = async () => {
     try {
       const { createdSessionId, setActive } = await startSSOFlow({ strategy: 'oauth_google' });
-      if (setActive && createdSessionId){
-        setActive({session:createdSessionId});
-        router.replace("/(tabs)");
+      if (setActive && createdSessionId) {
+        setActive({ session: createdSessionId });
+        router.replace('/(tabs)');
       }
     } catch (error) {
-        console.log("OAuth error", error);
+      console.log('OAuth error', error);
     }
   };
 

@@ -1,6 +1,6 @@
-import { styles } from "@/Styles/feed.styles";
-import { View, Text, Image } from "react-native";
-import { formatDistanceToNow } from "date-fns";
+import { styles } from '@/Styles/feed.styles';
+import { View, Text, Image } from 'react-native';
+import { formatDistanceToNow } from 'date-fns';
 
 interface Comment {
   content: string;

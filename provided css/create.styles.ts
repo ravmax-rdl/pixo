@@ -1,8 +1,8 @@
 // styles/create.styles.ts
-import { StyleSheet, Dimensions } from "react-native";
-import { COLORS } from "@/constants/theme";
+import { StyleSheet, Dimensions } from 'react-native';
+import { COLORS } from '@/constants/theme';
 
-const { width } = Dimensions.get("window");
+const { width } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
   container: {
@@ -13,9 +13,9 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingVertical: 12,
     borderBottomWidth: 0.5,
@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 18,
-    fontWeight: "600",
+    fontWeight: '600',
     color: COLORS.white,
   },
   contentDisabled: {
@@ -33,8 +33,8 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 6,
     minWidth: 60,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   shareButtonDisabled: {
     opacity: 0.5,
@@ -42,15 +42,15 @@ export const styles = StyleSheet.create({
   shareText: {
     color: COLORS.primary,
     fontSize: 16,
-    fontWeight: "600",
+    fontWeight: '600',
   },
   shareTextDisabled: {
     color: COLORS.grey,
   },
   emptyImageContainer: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     gap: 12,
   },
   emptyImageText: {
@@ -67,20 +67,20 @@ export const styles = StyleSheet.create({
     width: width,
     height: width,
     backgroundColor: COLORS.surface,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   previewImage: {
-    width: "100%",
-    height: "100%",
+    width: '100%',
+    height: '100%',
   },
   changeImageButton: {
-    position: "absolute",
+    position: 'absolute',
     bottom: 16,
     right: 16,
-    backgroundColor: "rgba(0, 0, 0, 0.75)",
-    flexDirection: "row",
-    alignItems: "center",
+    backgroundColor: 'rgba(0, 0, 0, 0.75)',
+    flexDirection: 'row',
+    alignItems: 'center',
     padding: 8,
     borderRadius: 8,
     gap: 6,
@@ -88,15 +88,15 @@ export const styles = StyleSheet.create({
   changeImageText: {
     color: COLORS.white,
     fontSize: 14,
-    fontWeight: "500",
+    fontWeight: '500',
   },
   inputSection: {
     padding: 16,
     flex: 1,
   },
   captionContainer: {
-    flexDirection: "row",
-    alignItems: "flex-start",
+    flexDirection: 'row',
+    alignItems: 'flex-start',
   },
   userAvatar: {
     width: 36,

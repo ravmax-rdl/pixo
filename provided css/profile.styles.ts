@@ -1,8 +1,8 @@
 // styles/profile.styles.ts
-import { COLORS } from "@/constants/theme";
-import { Dimensions, StyleSheet } from "react-native";
+import { COLORS } from '@/constants/theme';
+import { Dimensions, StyleSheet } from 'react-native';
 
-const { width, height } = Dimensions.get("window");
+const { width, height } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
   container: {
@@ -10,25 +10,25 @@ export const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
   },
   header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     paddingHorizontal: 16,
     paddingVertical: 12,
     borderBottomWidth: 0.5,
     borderBottomColor: COLORS.surface,
   },
   headerLeft: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   username: {
     fontSize: 20,
-    fontWeight: "700",
+    fontWeight: '700',
     color: COLORS.white,
   },
   headerRight: {
-    flexDirection: "row",
+    flexDirection: 'row',
     gap: 16,
   },
   headerIcon: {
@@ -38,8 +38,8 @@ export const styles = StyleSheet.create({
     padding: 16,
   },
   avatarAndStats: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: 16,
   },
   avatarContainer: {
@@ -54,15 +54,15 @@ export const styles = StyleSheet.create({
   },
   statsContainer: {
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-around",
+    flexDirection: 'row',
+    justifyContent: 'space-around',
   },
   statItem: {
-    alignItems: "center",
+    alignItems: 'center',
   },
   statNumber: {
     fontSize: 17,
-    fontWeight: "700",
+    fontWeight: '700',
     color: COLORS.white,
     marginBottom: 4,
   },
@@ -73,7 +73,7 @@ export const styles = StyleSheet.create({
 
   name: {
     fontSize: 15,
-    fontWeight: "600",
+    fontWeight: '600',
     color: COLORS.white,
     marginBottom: 4,
   },
@@ -83,7 +83,7 @@ export const styles = StyleSheet.create({
     lineHeight: 20,
   },
   actionButtons: {
-    flexDirection: "row",
+    flexDirection: 'row',
     gap: 8,
     marginTop: 8,
   },
@@ -92,11 +92,11 @@ export const styles = StyleSheet.create({
     backgroundColor: COLORS.surface,
     padding: 8,
     borderRadius: 8,
-    alignItems: "center",
+    alignItems: 'center',
   },
   editButtonText: {
     color: COLORS.white,
-    fontWeight: "600",
+    fontWeight: '600',
     fontSize: 14,
   },
   shareButton: {
@@ -104,8 +104,8 @@ export const styles = StyleSheet.create({
     padding: 8,
     borderRadius: 8,
     aspectRatio: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   gridItem: {
     flex: 1 / 3,
@@ -117,8 +117,8 @@ export const styles = StyleSheet.create({
   },
   modalContainer: {
     flex: 1,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    justifyContent: "flex-end",
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'flex-end',
   },
   modalContent: {
     backgroundColor: COLORS.background,
@@ -128,15 +128,15 @@ export const styles = StyleSheet.create({
     minHeight: 400,
   },
   modalHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     marginBottom: 20,
   },
   modalTitle: {
     color: COLORS.white,
     fontSize: 18,
-    fontWeight: "600",
+    fontWeight: '600',
   },
   inputContainer: {
     marginBottom: 20,
@@ -155,33 +155,33 @@ export const styles = StyleSheet.create({
   },
   bioInput: {
     height: 100,
-    textAlignVertical: "top",
+    textAlignVertical: 'top',
   },
   saveButton: {
     backgroundColor: COLORS.primary,
     padding: 16,
     borderRadius: 8,
-    alignItems: "center",
+    alignItems: 'center',
     marginTop: 20,
   },
   saveButtonText: {
     color: COLORS.background,
     fontSize: 16,
-    fontWeight: "600",
+    fontWeight: '600',
   },
   modalBackdrop: {
     flex: 1,
-    backgroundColor: "rgba(0, 0, 0, 0.9)",
-    justifyContent: "center",
+    backgroundColor: 'rgba(0, 0, 0, 0.9)',
+    justifyContent: 'center',
   },
   postDetailContainer: {
     backgroundColor: COLORS.background,
     maxHeight: height * 0.9,
   },
   postDetailHeader: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "flex-end",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
     padding: 12,
     borderBottomWidth: 0.5,
     borderBottomColor: COLORS.surface,
@@ -205,16 +205,16 @@ export const styles = StyleSheet.create({
   followButtonText: {
     color: COLORS.white,
     fontSize: 14,
-    fontWeight: "600",
-    textAlign: "center",
+    fontWeight: '600',
+    textAlign: 'center',
   },
   followingButtonText: {
     color: COLORS.white,
-    textAlign: "center",
+    textAlign: 'center',
   },
   noPostsContainer: {
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     paddingVertical: 48,
     gap: 12,
     flex: 1,
@@ -225,18 +225,18 @@ export const styles = StyleSheet.create({
   },
   centered: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   postsGrid: {
     flex: 1,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
   },
   headerTitle: {
     fontSize: 18,
-    fontWeight: "600",
+    fontWeight: '600',
     color: COLORS.white,
   },
 });
