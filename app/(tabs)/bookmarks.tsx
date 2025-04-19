@@ -45,7 +45,7 @@ function NoBookMarksFound() {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: COLORS.white,
+        backgroundColor: COLORS.background,
       }}
     >
       <Text style={{ color: COLORS.primary, fontSize: 22 }}>No Bookmarks Found</Text>
