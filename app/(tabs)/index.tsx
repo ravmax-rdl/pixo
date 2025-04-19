@@ -21,16 +21,16 @@ export default function Index() {
   if (posts.length === 0) return <NoPostsFound />;
 
   const onRefresh = () => {
-    setRefreshing(true); 
+    setRefreshing(true);
     setTimeout(() => {
-      setRefreshing(false); 
-    }, 2000)
+      setRefreshing(false);
+    }, 2000);
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>spotlight</Text>
+        <Text style={styles.headerTitle}>Pixio</Text>
         <TouchableOpacity onPress={() => signOut()}>
           <Ionicons name="log-out-outline" size={24} color={COLORS.white} />
         </TouchableOpacity>
