@@ -1,50 +1,84 @@
-# Welcome to **Pixio** 👋
+# Pixio 📸✨
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+[![Expo](https://img.shields.io/badge/Expo-52.0.46-blue)](https://expo.dev)
+[![React Native](https://img.shields.io/badge/React%20Native-0.76.9-blueviolet)](https://reactnative.dev)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-## Get started
+Pixio is a modern social media app built with [Expo](https://expo.dev) and [React Native](https://reactnative.dev). Share your moments, connect with friends, and explore a vibrant community.
 
-1. Install dependencies
+---
+
+## 🚀 Features
+
+- 📷 **Post Sharing**: Upload and share your favorite moments with captions.
+- ❤️ **Engagement**: Like, comment, and bookmark posts.
+- 🧑‍🤝‍🧑 **Follow System**: Follow users and see their posts in your feed.
+- 🔔 **Notifications**: Stay updated with likes, comments, and follows.
+- 🔒 **Secure Authentication**: Powered by [Clerk](https://clerk.dev).
+- 🌐 **Cross-Platform**: Works seamlessly on Android, iOS, and Web.
+
+---
+
+## 🛠️ Get Started
+
+1. **Install dependencies**:
 
    ```bash
    npm install
    ```
 
-2. Start the app
+2. **Start the app**:
 
    ```bash
-    npx expo start
+   npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+   Open the app in:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+   - [Development build](https://docs.expo.dev/develop/development-builds/introduction/)
+   - [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+   - [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+   - [Expo Go](https://expo.dev/go)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+3. **Develop**: Edit files in the `app` directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
+---
 
-When you're ready, run:
+## 📂 Project Structure
 
-```bash
-npm run reset-project
-```
+- **`app/`**: Main application code with file-based routing.
+- **`components/`**: Reusable UI components.
+- **`convex/`**: Backend logic powered by [Convex](https://convex.dev).
+- **`Styles/`**: Centralized styling for the app.
+- **`constants/`**: Static data and theme configurations.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## 🤝 Contributing
 
-To learn more about developing your project with Expo, look at the following resources:
+We welcome contributions! Here's how you can help:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Commit your changes and push the branch.
+4. Open a pull request.
 
-## Join the community
+---
 
-Join our community of developers creating universal apps.
+## 📚 Learn More
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- [Expo Documentation](https://docs.expo.dev): Learn the fundamentals and advanced topics.
+- [React Native Documentation](https://reactnative.dev/docs/getting-started): Explore React Native's capabilities.
+- [Convex Documentation](https://docs.convex.dev): Learn about the backend framework used.
+
+---
+
+## 🌟 Show Your Support
+
+If you like this project, please give it a ⭐️ and share it with others!
+
+---
+
+## 📝 License
+
+This project is licensed under the [MIT License](LICENSE).
