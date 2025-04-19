@@ -28,7 +28,7 @@ export default function login() {
 
       <View style={styles.brandSection}>
         <View style={styles.logoContainer}>
-          <Ionicons name="leaf" size={32} color={COLORS.primary} />
+          <Ionicons name="camera" size={32} color={COLORS.primary} />
         </View>
         <Text style={styles.appName}>Pixio</Text>
         <Text style={styles.tagline}>don't miss anything</Text>
