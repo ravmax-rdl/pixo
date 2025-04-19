@@ -2,7 +2,6 @@
 
 [![Expo](https://img.shields.io/badge/Expo-52.0.46-blue)](https://expo.dev)
 [![React Native](https://img.shields.io/badge/React%20Native-0.76.9-blueviolet)](https://reactnative.dev)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 Pixio is a modern social media app built with [Expo](https://expo.dev) and [React Native](https://reactnative.dev). Share your moments, connect with friends, and explore a vibrant community.
 
@@ -77,8 +76,3 @@ We welcome contributions! Here's how you can help:
 
 If you like this project, please give it a ⭐️ and share it with others!
 
----
-
-## 📝 License
-
-This project is licensed under the [MIT License](LICENSE).
